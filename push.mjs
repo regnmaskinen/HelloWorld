@@ -10,9 +10,15 @@ for (const [filepath, , workdir] of status) {
   if (workdir !== 0) await git.add({ fs, dir, filepath })
 }
 
+// Also remove deleted files
+const deletedFiles = (await git.statusMatrix({ fs, dir }))
+  .filter(([, head, workdir]) => head === 1 && workdir === 0)
+  .map(([f]) => f)
+for (const f of deletedFiles) await git.remove({ fs, dir, filepath: f })
+
 await git.commit({
   fs, dir,
-  message: 'Add link to snake game from main page',
+  message: 'Replace with Spider Squirter FPS game',
   author: { name: 'regnmaskinen', email: 'regnmaskinen@users.noreply.github.com' },
 })
 
