@@ -15,11 +15,10 @@ for (const [filepath, , workdir] of status) {
 await git.commit({
   fs,
   dir,
-  message: 'Fix: handle missing Supabase env vars gracefully',
+  message: 'Add .env.production for Vercel build',
   author: { name: 'regnmaskinen', email: 'regnmaskinen@users.noreply.github.com' },
 })
 
-console.log('Pushing...')
 const result = await git.push({
   fs,
   http,
@@ -29,4 +28,4 @@ const result = await git.push({
   onAuth: () => ({ username: token }),
   force: true,
 })
-console.log('Done!', result.ok)
+console.log('Pushed:', result.ok)
