@@ -12,7 +12,7 @@ for (const [filepath, , workdir] of status) {
 
 await git.commit({
   fs, dir,
-  message: 'Add Alphabet Snake game',
+  message: 'Fix: add cleanUrls to serve /snake route',
   author: { name: 'regnmaskinen', email: 'regnmaskinen@users.noreply.github.com' },
 })
 
