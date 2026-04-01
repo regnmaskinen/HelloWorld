@@ -12,7 +12,7 @@ for (const [filepath, , workdir] of status) {
 
 await git.commit({
   fs, dir,
-  message: 'Fix: add cleanUrls to serve /snake route',
+  message: 'Add link to snake game from main page',
   author: { name: 'regnmaskinen', email: 'regnmaskinen@users.noreply.github.com' },
 })
 

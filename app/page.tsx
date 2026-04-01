@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 
 const fallbackGreetings = [
@@ -155,6 +156,8 @@ export default function Home() {
           <p style={styles.greetingText}>{greeting.greeting}</p>
         </div>
       )}
+
+      <Link href="/snake" style={styles.snakeLink}>Play Alphabet Snake 🐍</Link>
     </main>
   )
 }
@@ -206,5 +209,12 @@ const styles: Record<string, React.CSSProperties> = {
     color: '#ffffff',
     margin: 0,
     fontWeight: 500,
+  },
+  snakeLink: {
+    color: '#3ecf8e',
+    fontSize: '0.95rem',
+    textDecoration: 'none',
+    borderBottom: '1px solid #3ecf8e44',
+    paddingBottom: '2px',
   },
 }
