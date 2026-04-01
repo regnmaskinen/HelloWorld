@@ -30,7 +30,7 @@ const result = await git.push({
   http,
   dir,
   remote: 'origin',
-  ref: 'main',
+  ref: 'master',
   onAuth: () => ({ username: token }),
   force: true,
 })
