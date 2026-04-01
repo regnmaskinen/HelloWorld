@@ -26,9 +26,10 @@ export default function Home() {
   async function getGreeting() {
     setLoading(true)
 
-    const { data, error } = await supabase
-      .from('greetings')
-      .select('language, greeting')
+    const result = supabase
+      ? await supabase.from('greetings').select('language, greeting')
+      : { data: null, error: true }
+    const { data, error } = result
 
     if (!error && data && data.length > 0) {
       const random = data[Math.floor(Math.random() * data.length)]
