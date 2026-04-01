@@ -12,7 +12,7 @@ for (const [filepath, , workdir] of status) {
 
 await git.commit({
   fs, dir,
-  message: 'Fix: use static export for Vercel compatibility',
+  message: 'Add 100 languages',
   author: { name: 'regnmaskinen', email: 'regnmaskinen@users.noreply.github.com' },
 })
 
