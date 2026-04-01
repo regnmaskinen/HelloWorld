@@ -7,24 +7,20 @@ const token = process.argv[2]
 
 const status = await git.statusMatrix({ fs, dir })
 for (const [filepath, , workdir] of status) {
-  if (workdir !== 0) {
-    await git.add({ fs, dir, filepath })
-  }
+  if (workdir !== 0) await git.add({ fs, dir, filepath })
 }
 
 await git.commit({
-  fs,
-  dir,
-  message: 'Add .env.production for Vercel build',
+  fs, dir,
+  message: 'Fix: use static export for Vercel compatibility',
   author: { name: 'regnmaskinen', email: 'regnmaskinen@users.noreply.github.com' },
 })
 
 const result = await git.push({
-  fs,
-  http,
-  dir,
+  fs, http, dir,
   remote: 'origin',
   ref: 'master',
+  remoteRef: 'main',
   onAuth: () => ({ username: token }),
   force: true,
 })
