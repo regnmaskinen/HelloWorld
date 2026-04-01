@@ -12,7 +12,7 @@ for (const [filepath, , workdir] of status) {
 
 await git.commit({
   fs, dir,
-  message: 'Add 100 languages',
+  message: 'Add Alphabet Snake game',
   author: { name: 'regnmaskinen', email: 'regnmaskinen@users.noreply.github.com' },
 })
 
